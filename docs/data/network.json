@@ -1,0 +1,86 @@
+{
+ "versie": 1,
+ "crs": "EPSG:28992",
+ "eenheid_coordinaten": "decimeter, delta-gecodeerd",
+ "oorsprong": [
+  57000.0,
+  425000.0
+ ],
+ "knopen": 163371,
+ "randen": 225807,
+ "tussenpunten": 271748,
+ "bytes": 6128200,
+ "secties": {
+  "node_dx": {
+   "offset": 0,
+   "length": 163371,
+   "type": "int32"
+  },
+  "node_dy": {
+   "offset": 653484,
+   "length": 163371,
+   "type": "int32"
+  },
+  "edge_u": {
+   "offset": 1306968,
+   "length": 225807,
+   "type": "uint32"
+  },
+  "edge_v": {
+   "offset": 2210196,
+   "length": 225807,
+   "type": "uint32"
+  },
+  "geom_dx": {
+   "offset": 3113424,
+   "length": 271748,
+   "type": "int32"
+  },
+  "geom_dy": {
+   "offset": 4200416,
+   "length": 271748,
+   "type": "int32"
+  },
+  "edge_nv": {
+   "offset": 5287408,
+   "length": 225807,
+   "type": "uint16"
+  },
+  "node_flags": {
+   "offset": 5739022,
+   "length": 163371,
+   "type": "uint8"
+  },
+  "edge_flags": {
+   "offset": 5902393,
+   "length": 225807,
+   "type": "uint8"
+  }
+ },
+ "vlaggen": {
+  "lopen": 1,
+  "fiets_heen": 2,
+  "fiets_terug": 4,
+  "lopen_hoofdnet": 8,
+  "fiets_hoofdnet": 16,
+  "knoop_rand": 1
+ },
+ "km_lopen": 9977.5,
+ "km_fietsen": 6716.7,
+ "bbox_rd": [
+  57160.618951598764,
+  425568.2374051368,
+  104551.94154034233,
+  449992.17969900015
+ ],
+ "gebouwd": "2026-11-10T15:37:22Z",
+ "osm_datum": "2026-11-08T21:21:00Z",
+ "bron_osm": "OpenStreetMap-bijdragers (ODbL), via Geofabrik",
+ "bron_grens": "Kadaster BRK Bestuurlijke Gebieden (PDOK, CC-BY 4.0)",
+ "bron_inwoners": "CBS Vierkantstatistieken 100 m 2024 (PDOK, CC-BY 4.0)",
+ "buffer_m": 3000.0,
+ "inwoners_jaar": 2024,
+ "inwoners_cellen": 24371,
+ "inwoners_totaal_studiegebied": 1765215,
+ "inwoners_totaal_gemeente": 667540
+}

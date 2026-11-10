@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Isochronenkaart Rotterdam</title>
+  <meta name="description" content="Bekijk hoe ver je in Rotterdam komt lopend of fietsend, en exporteer de isochronen als GeoPackage.">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="paneel" aria-label="Instellingen en resultaten">
+      <header class="kop">
+        <div>
+          <h1 id="titel">Isochronenkaart Rotterdam</h1>
+          <p class="sub" id="ondertitel"></p>
+        </div>
+        <button id="paneel-sluit" class="knop-klein alleen-mobiel" type="button" aria-label="Paneel sluiten">Kaart</button>
+      </header>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <section>
+        <h2>Vervoerwijze</h2>
+        <div class="segment" id="modus" role="group" aria-label="Vervoerwijze"></div>
+        <label class="regel" for="snelheid">
+          <span>Snelheid</span>
+          <output id="snelheid-waarde" for="snelheid"></output>
+        </label>
+        <input type="range" id="snelheid">
+      </section>
+
+      <section>
+        <h2>Reistijd</h2>
+        <div id="banden" class="chips"></div>
+        <form id="band-form" class="inline">
+          <label class="sr-only" for="band-nieuw">Reistijd in minuten</label>
+          <input type="number" id="band-nieuw" min="1" max="45" step="1" placeholder="min" inputmode="numeric">
+          <button type="submit" class="knop-klein">Toevoegen</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Locaties</h2>
+        <div class="zoek">
+          <label class="sr-only" for="zoek">Zoek adres</label>
+          <input id="zoek" type="search" placeholder="Zoek adres of straat in Rotterdam" autocomplete="off"
+                 role="combobox" aria-expanded="false" aria-controls="zoek-lijst" aria-autocomplete="list">
+          <ul id="zoek-lijst" role="listbox" hidden></ul>
+        </div>
+        <p class="hint">Of klik op de kaart. Sleep een marker om de locatie te verplaatsen.</p>
+        <ol id="locaties" class="locaties"></ol>
+        <button id="wis-alles" class="link" type="button" hidden>Alle locaties wissen</button>
+      </section>
+
+      <section>
+        <h2>Weergave</h2>
+        <div class="segment" id="weergave" role="group" aria-label="Weergave">
+          <button type="button" data-waarde="per">Per locatie</button>
+          <button type="button" data-waarde="samen">Gecombineerd</button>
+        </div>
+        <p class="hint" id="weergave-uitleg"></p>
+        <label class="check"><input type="checkbox" id="toon-vlakken"> Vlakken per reistijd</label>
+        <label class="check"><input type="checkbox" id="toon-netwerk"> Bereikbaar netwerk</label>
+        <label class="regel" for="dekking"><span>Dekking vlakken</span><output id="dekking-waarde" for="dekking"></output></label>
+        <input type="range" id="dekking" min="0.2" max="1" step="0.05">
+        <label class="regel" for="basiskaart"><span>Achtergrondkaart</span>
+          <select id="basiskaart"></select>
+        </label>
+        <div id="legenda" class="legenda"></div>
+      </section>
+
+      <section>
+        <h2>Resultaat</h2>
+        <div id="resultaat" class="resultaat"><p class="leeg">Voeg een locatie toe om te beginnen.</p></div>
+      </section>
+
+      <section class="acties">
+        <button id="export" class="knop primair" type="button" disabled>Exporteer GeoPackage</button>
+        <button id="deel" class="knop" type="button">Kopieer link</button>
+      </section>
+
+      <footer id="info" class="info"></footer>
+    </aside>
+
+    <main id="kaart" aria-label="Kaart"></main>
+    <button id="paneel-open" class="knop paneel-open alleen-mobiel" type="button">Instellingen</button>
+  </div>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="vendor/proj4.js"></script>
+  <script src="vendor/sql-wasm.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/geocoder.js"></script>
+  <script src="js/gpkg.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
